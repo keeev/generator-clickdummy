@@ -1,0 +1,46 @@
+{
+  "name": "generator-Pulpmedia",
+  "version": "0.0.0",
+  "description": "Pulpmedia's front-end generator, based on yeoman",
+  "keywords": [
+    "yeoman-generator",
+    "assemble",
+    "less",
+    "clickdummy",
+    "frontend",
+    "agency"
+  ],
+  "homepage": "https://github.com/keeev/generator-pulpmedia",
+  "bugs": "https://github.com/keeev/generator-pulpmedia/issues",
+  "author": {
+    "name": "Kevin Niedermayr",
+    "email": "kevin@pulpmedia.at",
+    "url": "https://github.com/keeev"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/keeev/generator-pulpmedia.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.14.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.14.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}
