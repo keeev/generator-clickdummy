@@ -1,4 +1,4 @@
-# generator-clickdummy [![Build Status](https://secure.travis-ci.org/keeev/generator-clickdummy.png?branch=master)](https://travis-ci.org/keeev/generator-clickdummy)
+# generator-clickdummy [![Build Status](https://travis-ci.org/keeev/generator-clickdummy.svg?branch=master)](https://travis-ci.org/keeev/generator-clickdummy)
 
 A generator for [Yeoman](http://yeoman.io), for [clickdummy](http://clickdummy.com) front-end projects.
 
