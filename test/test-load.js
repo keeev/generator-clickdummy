@@ -3,7 +3,7 @@
 
 var assert = require('assert');
 
-describe('Pulpmedia generator', function () {
+describe('clickdummy generator', function () {
     it('can be imported without blowing up', function () {
         var app = require('../app');
         assert(app !== undefined);

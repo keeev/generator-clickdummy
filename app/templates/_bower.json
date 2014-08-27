@@ -4,8 +4,7 @@
   "dependencies": {
     "modernizr": "~2.6.2",
     "jquery": "~1.10.2",
-    "bootstrap": "~3.2.0",
-    "normalize-less" : "~0.0.2"
+    "normalize-less": "~0.0.2"
   },
   "devDependencies": {}
 }

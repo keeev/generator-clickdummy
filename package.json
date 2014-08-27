@@ -1,26 +1,23 @@
 {
-  "name": "generator-Pulpmedia",
+  "name": "generator-clickdummy",
   "version": "0.0.0",
-  "description": "Pulpmedia's front-end generator, based on yeoman",
+  "description": "Clickdummy generator for frontend development",
   "keywords": [
     "yeoman-generator",
     "assemble",
-    "less",
-    "clickdummy",
-    "frontend",
-    "agency"
+    "less"
   ],
-  "homepage": "https://github.com/keeev/generator-pulpmedia",
-  "bugs": "https://github.com/keeev/generator-pulpmedia/issues",
+  "homepage": "https://github.com/keeev/generator-clickdummy",
+  "bugs": "https://github.com/keeev/generator-clickdummy/issues",
   "author": {
     "name": "Kevin Niedermayr",
-    "email": "kevin@pulpmedia.at",
+    "email": "hi@augusteight.at",
     "url": "https://github.com/keeev"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/keeev/generator-pulpmedia.git"
+    "url": "git://github.com/keeev/generator-clickdummy.git"
   },
   "scripts": {
     "test": "mocha"

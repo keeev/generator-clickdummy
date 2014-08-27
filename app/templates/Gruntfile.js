@@ -1,6 +1,6 @@
 'use strict';
 
-/** build with generator-Pulpmedia 0.1.4 **/
+/** build with generator-clickdummy 0.1.4 **/
 
 module.exports = function (grunt) {
     <% if(includeProxy) {%> var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;<% } %>
@@ -19,28 +19,12 @@ module.exports = function (grunt) {
             dist: 'dist'
         },
         watch: {
-            less: {
-              development: {
-                options: {
-                  paths: ["assets/css"]
-                },
-                files: {
-                  "path/to/result.css": "path/to/source.less"
-                }
-              },
-              production: {
-                options: {
-                  paths: ["assets/css"],
-                  cleancss: true,
-                  modifyVars: {
-                    imgPath: '"http://mycdn.com/path/to/images"',
-                    bgColor: 'red'
-                  }
-                },
-                files: {
-                  "path/to/result.css": "path/to/source.less"
-                }
-              }
+            assemble: {
+                files: ['<%%= yeoman.app %>/templates/layouts/{,*/}*.hbs',
+                       '<%%= yeoman.app %>/templates/pages/{,*/}*.hbs',
+                       '<%%= yeoman.app %>/templates/partials/{,*/}*.hbs',
+                       '<%%= yeoman.app %>/data/{,*/}*.json'],
+                tasks: ['assemble:server']
             },
             livereload: {
                 options: {
@@ -52,6 +36,26 @@ module.exports = function (grunt) {
                     '{.tmp,<%%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
                 ]
+            }
+        },
+        assemble: {
+            options: {
+                flatten: true,
+                layout: 'layout.hbs',
+                layoutdir: '<%%= yeoman.app %>/templates/layouts',
+                assets: 'dist/images',
+                data: ['<%%= yeoman.app %>/data/*.json'],
+                partials: ['<%%= yeoman.app %>/templates/partials/*.hbs']
+            },
+            dist: {
+                files: {
+                    '<%%= yeoman.dist %>/': ['<%%= yeoman.app %>/templates/pages/*.hbs']
+                }
+            },
+            server: {
+                files: {
+                    '.tmp/': ['<%%= yeoman.app %>/templates/pages/*.hbs']
+                }
             }
         },
         connect: {
@@ -126,24 +130,7 @@ module.exports = function (grunt) {
             },
             server: '.tmp'
         },
-        less: {
-            dist: {
-                options: {
-                    style: 'compressed'
-                },
-                files: {
-                    '<%%= yeoman.dist %>/styles/main.css' : ['<%%= yeoman.app %>/styles/main.scss']
-                }
-            },
-            server: {
-                options: {
-                    debugInfo: true
-                },
-                files: {
-                    '.tmp/styles/main.css' : ['<%%= yeoman.app %>/styles/main.scss']
-                }
-            }
-        },<% if(includeAutoprefixer) {%>
+        <% if(includeAutoprefixer) {%>
         autoprefixer: {
             options: {
                 browsers: ['last 1 version']
@@ -235,17 +222,42 @@ module.exports = function (grunt) {
                 },
                 uglify: true
             }
+        },
+        less: {
+          development: {
+            options: {
+              paths: ["assets/css"]
+            },
+            files: {
+              "path/to/result.css": "path/to/source.less"
+            }
+          },
+          production: {
+            options: {
+              paths: ["assets/css"],
+              cleancss: true,
+              modifyVars: {
+                imgPath: '"http://mycdn.com/path/to/images"',
+                bgColor: 'red'
+              }
+            },
+            files: {
+              "path/to/result.css": "path/to/source.less"
+            }
+          }
         }
+        
     });
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
-
+        
+        grunt.loadNpmTasks('grunt-contrib-less');
+        
         grunt.task.run([
             'clean:server',
-            'less',
             'copy:styles',
             'assemble:server',<% if(includeAutoprefixer) {%>
             'autoprefixer',<% } %><% if(includeProxy) {%>
@@ -263,7 +275,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'less',
         'copy',
         'htmlmin',
         'assemble:dist',

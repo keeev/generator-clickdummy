@@ -1,23 +1,23 @@
-# generator-Pulpmedia [![Build Status](https://secure.travis-ci.org/ddprrt/generator-Pulpmedia.png?branch=master)](https://travis-ci.org/ddprrt/generator-Pulpmedia)
+# generator-clickdummy [![Build Status](https://secure.travis-ci.org/keeev/generator-clickdummy.png?branch=master)](https://travis-ci.org/keeev/generator-clickdummy)
 
-A generator for [Yeoman](http://yeoman.io), for [Pulpmedia](http://Pulpmedia.com) front-end projects.
+A generator for [Yeoman](http://yeoman.io), for [clickdummy](http://clickdummy.com) front-end projects.
 
 
 ## Getting Started
 
-To install generator-Pulpmedia from npm, run:
+To install generator-clickdummy from npm, run:
 
 ```
-$ npm install -g generator-Pulpmedia
+$ npm install -g generator-clickdummy
 ```
 
 Finally, initiate the generator:
 
 ```
-$ yo Pulpmedia
+$ yo clickdummy
 ```
 
-Pulpmedia's generator prompts you for your project name and if you want to use Autoprefixer.
+clickdummy's generator prompts you for your project name and if you want to use Autoprefixer.
 If you install any bower dependencies, be sure to run
 
 ```
@@ -28,13 +28,9 @@ after scaffolding
 
 ## What's in the package?
 
-Pulpmedia's front-end generator sets up a project including:
+clickdummy's front-end generator sets up a project including:
 
 * [connect](http://www.senchalabs.org/connect/) Server
-* [Sass](http://sass-lang.com) compilation
-* Minifaction
-* [Assemble](http://assemble.io) for template generation
-* SMACSS based Sass folders, including [Normalize.css](http://necolas.github.io/normalize.css/)
 * Optional autoprefixer
 
 
