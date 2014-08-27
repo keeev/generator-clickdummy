@@ -29,10 +29,7 @@ describe('clickdummy generator', function () {
             '.gitignore',
             'Gruntfile.js',
             'app/scripts/main.js',
-            'app/styles/main.less',
-            'app/templates/layouts/layout.hbs',
-            'app/templates/pages/index.hbs',
-            'app/templates/partials/scripts.hbs'
+            'app/styles/main.less'
         ];
 
         helpers.mockPrompt(this.app, {
