@@ -72,10 +72,7 @@ ClickdummyGenerator.prototype.setupScripts = function setupScripts() {
 
 ClickdummyGenerator.prototype.setupStyles = function setupStyles() {
     this.mkdir('app/styles');
-    /*this.mkdir('app/styles/base');
-    this.mkdir('app/styles/layout');
-    this.mkdir('app/styles/modules');
-    this.mkdir('app/styles/states');
+    /* create folders in the following structure
     this.mkdir('app/styles/util');*/
 
     this.copy('main.less', 'app/styles/main.less');
@@ -89,7 +86,7 @@ ClickdummyGenerator.prototype.setupDirectories = function setupDirectories() {
 
 ClickdummyGenerator.prototype.setupViews = function setupViews() {
     this.mkdir('app/views/includes');
-    
+
     this.copy('index.php','app/views/index.php');
     this.copy('header.php','app/views/includes/header.php');
 };

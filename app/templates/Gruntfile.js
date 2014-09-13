@@ -19,13 +19,6 @@ module.exports = function (grunt) {
             dist: 'dist'
         },
         watch: {
-            assemble: {
-                files: ['<%%= yeoman.app %>/templates/layouts/{,*/}*.hbs',
-                       '<%%= yeoman.app %>/templates/pages/{,*/}*.hbs',
-                       '<%%= yeoman.app %>/templates/partials/{,*/}*.hbs',
-                       '<%%= yeoman.app %>/data/{,*/}*.json'],
-                tasks: ['assemble:server']
-            },
             livereload: {
                 options: {
                     livereload: '<%%= connect.options.livereload %>'
@@ -36,26 +29,6 @@ module.exports = function (grunt) {
                     '{.tmp,<%%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
                 ]
-            }
-        },
-        assemble: {
-            options: {
-                flatten: true,
-                layout: 'layout.hbs',
-                layoutdir: '<%%= yeoman.app %>/templates/layouts',
-                assets: 'dist/images',
-                data: ['<%%= yeoman.app %>/data/*.json'],
-                partials: ['<%%= yeoman.app %>/templates/partials/*.hbs']
-            },
-            dist: {
-                files: {
-                    '<%%= yeoman.dist %>/': ['<%%= yeoman.app %>/templates/pages/*.hbs']
-                }
-            },
-            server: {
-                files: {
-                    '.tmp/': ['<%%= yeoman.app %>/templates/pages/*.hbs']
-                }
             }
         },
         connect: {
@@ -246,16 +219,16 @@ module.exports = function (grunt) {
             }
           }
         }
-        
+
     });
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
-        
+
         grunt.loadNpmTasks('grunt-contrib-less');
-        
+
         grunt.task.run([
             'clean:server',
             'copy:styles',
@@ -277,7 +250,6 @@ module.exports = function (grunt) {
         'clean:dist',
         'copy',
         'htmlmin',
-        'assemble:dist',
         'useminPrepare',<% if(includeAutoprefixer) {%>
         'autoprefixer',<% } %>
         'concat:generated',
